@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http_equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Django Anúncios</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+
+  </head>
+  <body>
+
+    <div class="ui attached menu">
+      <div class="ui container">
+        <a class="item">Django Anúncios</a>
+        <div class="right menu">
+          <div class="ui right aligned category search item">
+            <div class="ui transparent icon input">
+              <input class="prompt" type="text" placeholder="Pesquisar...">
+              <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui hidden divider"></div>
+
+    <div class="ui container">
+      <div class="ui stackable grid">
+        <div class="four wide column">
+          <div class="ui dividing header">Categoraias</div>
+          <div class="ui fluid vertical menu">
+            {% for categoria in categorias %}
+            <a href="" class="ui item">
+              {{ categoria }}
+            </a>
+            {% endfor %}
+          </div>
+        </div> 
+        
+        <div class="twelve wide column">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
