@@ -3,21 +3,27 @@
 {% block content %}
   <div class="ui three column stackable grid">
     {% for anuncio in anuncios %}
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="{% static 'anuncio/img/image.png' %}">
-          </div>
-          <div class="content">
-            <div class="header">{{ anuncio.titulo }}</div>
-          </div>
-          <div class="extra content">
-            R$ {{ anuncio.preco }}
-          </div>
+      
+        <div class="column">
+          <a href="{% url 'anuncio' anuncio.id %}">
+            <div class="ui fluid card">
+              <div class="image">
+                <img src="{% static 'anuncio/img/image.png' %}">
+              </div>
+              <div class="content">
+                <div class="header">{{ anuncio.titulo }}</div>
+              </div>
+              <div class="extra content">
+                R$ {{ anuncio.preco }}
+              </div>
+            </div>
+          </a>
         </div>
-      </div>
+        
     {% empty %}
+
       <div class="ui fluid message">Nenhum Anúncio Encontrado</div>    
+    
     {% endfor %}
   </div>
 {% endblock %}    
