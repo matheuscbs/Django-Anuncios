@@ -15,7 +15,9 @@
             R$ {{ anuncio.preco }}
           </div>
         </div>
-      </div>    
+      </div>
+    {% empty %}
+      <div class="ui fluid message">Nenhum Anúncio Encontrado</div>    
     {% endfor %}
   </div>
 {% endblock %}    
